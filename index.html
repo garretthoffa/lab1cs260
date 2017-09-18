@@ -37,19 +37,19 @@ function rps(yourChoice){
 	var max = Math.floor(3);
 	var computerChoice = Math.floor(Math.random() * (max-min)) + min;
 	if (youtChoice == computerChoice) {
-	
+	// tie	
 	} else if ( (yourChoice == 0) && (computerChoice ==2)) {
-	
-	} else if((yourChoice == 0) && (computerChoice ==3)) {
-	
+	// computer wins
+	} else if((yourChoice == 0) && (computerChoice ==1)) {
+	//player winds
 	} else if ((yourChoice == 1) && (computerChoice ==2)) {
-	
-	} else if ((yourChoice == 1) && (computerChoice ==2)) {
-	
-	} else if ((yourChoice == 2) && (computerChoice ==2)) {
-
-	} else if ((yourChoice == 2) && (computerChoice ==2)) {
-	
+	//computer wins
+	} else if ((yourChoice == 1) && (computerChoice ==0)) {
+	//player wins
+	} else if ((yourChoice == 2) && (computerChoice ==0)) {
+   	 // computer wins
+	} else if ((yourChoice == 2) && (computerChoice ==1)) {
+	//player wins
 	}
 
 	
