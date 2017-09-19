@@ -28,6 +28,7 @@
 <div id="results">
 <h2>The Results</h2>
 <p id="resultsDisplay"> See Your Results:</p>
+<p id="totalStats"></p>
 </div>
 <script>
 var totalWins=0;
@@ -63,6 +64,9 @@ function rps(yourChoice){
 	}
 	total++;
 	var response = document.getElementById("resultsDisplay");
+	var completeStats ="<p> Players have beaten the computer "+totalWins.toString() +" out of "+total.toString()+" times.</p>";
+	var stats = document.getElementById("totalStats")
+	stats.innerHTML = completeStats;
 	response.innerHTML = results;
 }
 </script>
