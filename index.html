@@ -1,75 +1,83 @@
 <html>
-<head>
-<link rel="stylesheet" type="text/css" href="main.css">
-<link rel="icon" href="scissorIco.png">
-</head>
-<body>
-<div id="header">
-<h1> The great Rock Paper Scissors game</h1>
-<p>This is a Rock Paper Scissors game that you can play against a computer.</p>
-</div>
-<div id="instructions">
-<h2>Game Instructions:</h2>
-<p>In this game you will be chosing either Rock, Paper, or Scissors. The computer will pick one as well, and it will compare the two choices and determine a winner</p>
-<ul>
-	<li>Rock beats scissors</li>
-	<li>Paper beats Rock</li>
-	<li>Scissors beats Paper</li>
-</ul>
-
-<div id="gameSection">
-<h2>Play the Game:</h2>
-<p>Compete with the computer.</p>
-</div>
-<div>
- <button type="button" onclick="rps(0)" ><img src="rock.png" height="128" width="128"/></button>
-        <button type="button" onclick="rps(1)" ><img src="paper.png" height="128" width="128"/></button>
-        <button type="button" onclick="rps(2)" ><img src="scissors.png" height="128" width="128"/></button>
-</div>
-<div id="results">
-<h2>The Results:</h2>
-<p id="resultsDisplay"> See Your Results:</p>
-<p id="totalStats"></p>
-</div>
-<script>
-var totalWins=0;
-var total=0;
-function rps(yourChoice){
-	var results="<p>";
-	var min = Math.ceil(0);
-	var max = Math.floor(3);
-	var computerChoice = Math.floor(Math.random() * (max-min)) + min;
-	if (yourChoice == computerChoice) {
-		results = results +"You tied with the computer </p>";
-	} else if ( (yourChoice == 0) && (computerChoice ==2)) {
-	// computer wins
-		results = results +"The computer won </p>";
-	} else if((yourChoice == 0) && (computerChoice ==1)) {
-	//player winds
-		results = results +"You beat the computer </p>";
-		totalWins++;
-	} else if ((yourChoice == 1) && (computerChoice ==2)) {
-	//computer wins
-		 results = results +"The computer won </p>";
-	} else if ((yourChoice == 1) && (computerChoice ==0)) {
-	//player wins
-		 results = results +"You beat the computer </p>";
-                totalWins++;
-	} else if ((yourChoice == 2) && (computerChoice ==0)) {
-   	 // computer wins
-		 results = results +"The computer won </p>";
-	} else if ((yourChoice == 2) && (computerChoice ==1)) {
-	//player wins
-		 results = results +"You beat the computer </p>";
-                totalWins++;
+	<head>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="icon" href="scissorIco.png">
+	</head>
+	<body>
+	<div id="header">
+	<h1> The great Rock Paper Scissors game</h1>
+	<p>This is a Rock Paper Scissors game that you can play against a computer.</p>
+	</div>
+	<div id="instructions">
+	<h2>Game Instructions:</h2>
+	<p>In this game you will be chosing either Rock, Paper, or Scissors. The computer will pick one as well, and it will compare the two choices and determine a winner</p>
+	<ul>
+		<li>Rock beats scissors</li>
+		<li>Paper beats Rock</li>
+		<li>Scissors beats Paper</li>
+	</ul>
+	
+	<div id="gameSection">
+	<h2>Play the Game:</h2>
+	<p>Compete with the computer.</p>
+	</div>
+	<div>
+	 <button type="button" onclick="rps(0)" ><img src="rock.png" height="128" width="128"/></button>
+			<button type="button" onclick="rps(1)" ><img src="paper.png" height="128" width="128"/></button>
+			<button type="button" onclick="rps(2)" ><img src="scissors.png" height="128" width="128"/></button>
+	</div>
+	<div id="results">
+	<h2>The Results:</h2>
+	<p id="totalStats"></p>
+	<p id="resultsDisplay"> See Your Results:</p>
+	</div>
+	<script>
+	var totalWins=0;
+	var total=0;
+	var results ="<p>";
+	var count=0;
+	function rps(yourChoice){
+		//var results="<p>";
+		if (count ==10)
+		{
+			results ="<p>";
+			count=0;
+		}
+		var min = Math.ceil(0);
+		var max = Math.floor(3);
+		var computerChoice = Math.floor(Math.random() * (max-min)) + min;
+		if (yourChoice == computerChoice) {
+			results = "You tied with the computer <br/>"+results;
+		} else if ( (yourChoice == 0) && (computerChoice ==2)) {
+		// computer win
+			results = "The computer won <br/>"+results;
+		} else if((yourChoice == 0) && (computerChoice ==1)) {
+		//player winds
+			results = "You beat the computer <br/>"+results;
+			totalWins++;
+		} else if ((yourChoice == 1) && (computerChoice ==2)) {
+		//computer wins
+			 results = "The computer won <br/>"+results;
+		} else if ((yourChoice == 1) && (computerChoice ==0)) {
+		//player wins
+			 results = "You beat the computer <br>/"+results;
+					totalWins++;
+		} else if ((yourChoice == 2) && (computerChoice ==0)) {
+			// computer wins
+			 results ="The computer won <br/>"+results;
+		} else if ((yourChoice == 2) && (computerChoice ==1)) {
+		//player wins
+			 results ="You beat the computer <br/>"+results;
+					totalWins++;
+		}
+		total++;
+		var response = document.getElementById("resultsDisplay");
+		var completeStats ="<p> Players have beaten the computer "+totalWins.toString() +" out of "+total.toString()+" times.</p>";
+		var stats = document.getElementById("totalStats")
+		stats.innerHTML = completeStats;
+		response.innerHTML = results+"</p>";
+		count++;
 	}
-	total++;
-	var response = document.getElementById("resultsDisplay");
-	var completeStats ="<p> Players have beaten the computer "+totalWins.toString() +" out of "+total.toString()+" times.</p>";
-	var stats = document.getElementById("totalStats")
-	stats.innerHTML = completeStats;
-	response.innerHTML = results;
-}
-</script>
-</body>
-</html>
+	</script>
+	</body>
+	</html>
