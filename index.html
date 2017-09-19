@@ -1,6 +1,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="main.css">
+<link rel="icon" href="scissorIco.png">
 </head>
 <body>
 <div id="header">
@@ -27,46 +28,39 @@
 </div>
 <div id="results">
 <h2>The Results:</h2>
-<p id="totalStats"></p>
 <p id="resultsDisplay"> See Your Results:</p>
+<p id="totalStats"></p>
 </div>
 <script>
 var totalWins=0;
 var total=0;
-var results ="<p>";
-var count=0;
 function rps(yourChoice){
-	//var results="<p>";
-	if (count ==10)
-	{
-		results ="<p>";
-		count=0;
-	}
+	var results="<p>";
 	var min = Math.ceil(0);
 	var max = Math.floor(3);
 	var computerChoice = Math.floor(Math.random() * (max-min)) + min;
 	if (yourChoice == computerChoice) {
-		results = "You tied with the computer <br/>"+results;
+		results = results +"You tied with the computer </p>";
 	} else if ( (yourChoice == 0) && (computerChoice ==2)) {
-	// computer win
-		results = "The computer won <br/>"+results;
+	// computer wins
+		results = results +"The computer won </p>";
 	} else if((yourChoice == 0) && (computerChoice ==1)) {
 	//player winds
-		results = "You beat the computer <br/>"+results;
+		results = results +"You beat the computer </p>";
 		totalWins++;
 	} else if ((yourChoice == 1) && (computerChoice ==2)) {
 	//computer wins
-		 results = "The computer won <br/>"+results;
+		 results = results +"The computer won </p>";
 	} else if ((yourChoice == 1) && (computerChoice ==0)) {
 	//player wins
-		 results = "You beat the computer <br>/"+results;
+		 results = results +"You beat the computer </p>";
                 totalWins++;
 	} else if ((yourChoice == 2) && (computerChoice ==0)) {
    	 // computer wins
-		 results ="The computer won <br/>"+results;
+		 results = results +"The computer won </p>";
 	} else if ((yourChoice == 2) && (computerChoice ==1)) {
 	//player wins
-		 results ="You beat the computer <br/>"+results;
+		 results = results +"You beat the computer </p>";
                 totalWins++;
 	}
 	total++;
@@ -74,8 +68,7 @@ function rps(yourChoice){
 	var completeStats ="<p> Players have beaten the computer "+totalWins.toString() +" out of "+total.toString()+" times.</p>";
 	var stats = document.getElementById("totalStats")
 	stats.innerHTML = completeStats;
-	response.innerHTML = results+"</p>";
-	count++;
+	response.innerHTML = results;
 }
 </script>
 </body>
