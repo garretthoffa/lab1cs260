@@ -37,7 +37,7 @@ function rps(yourChoice){
 	var min = Math.ceil(0);
 	var max = Math.floor(3);
 	var computerChoice = Math.floor(Math.random() * (max-min)) + min;
-	if (youtChoice == computerChoice) {
+	if (yourChoice == computerChoice) {
 		results = results +"You tied with the computer </p>";
 	} else if ( (yourChoice == 0) && (computerChoice ==2)) {
 	// computer wins
@@ -45,21 +45,21 @@ function rps(yourChoice){
 	} else if((yourChoice == 0) && (computerChoice ==1)) {
 	//player winds
 		results = results +"You beat the computer </p>";
-		toatalWins++;
+		totalWins++;
 	} else if ((yourChoice == 1) && (computerChoice ==2)) {
 	//computer wins
 		 results = results +"The computer won </p>";
 	} else if ((yourChoice == 1) && (computerChoice ==0)) {
 	//player wins
 		 results = results +"You beat the computer </p>";
-                toatalWins++;
+                totalWins++;
 	} else if ((yourChoice == 2) && (computerChoice ==0)) {
    	 // computer wins
 		 results = results +"The computer won </p>";
 	} else if ((yourChoice == 2) && (computerChoice ==1)) {
 	//player wins
 		 results = results +"You beat the computer </p>";
-                toatalWins++;
+                totalWins++;
 	}
 	total++;
 	var response = document.getElementById("resultsDisplay");
